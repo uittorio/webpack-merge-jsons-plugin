@@ -2,12 +2,12 @@ const glob = require('glob'),
   fs = require('fs'),
   path = require('path');
 
-function WebPackMergeJsonsPlugin(options) {
+function WebpackMergeJsonsPlugin(options) {
   this.src = options.src;
   this.dest = options.dest;
 }
 
-WebPackMergeJsonsPlugin.prototype.apply = function(compiler) {
+WebpackMergeJsonsPlugin.prototype.apply = function(compiler) {
   var self = this;
 
   this.filesTimeStamps = {};
@@ -46,11 +46,11 @@ WebPackMergeJsonsPlugin.prototype.apply = function(compiler) {
   });
 };
 
-WebPackMergeJsonsPlugin.prototype.addFileToWebPackDependencies = function(compilation, filePath) {
+WebpackMergeJsonsPlugin.prototype.addFileToWebPackDependencies = function(compilation, filePath) {
   compilation.fileDependencies.push(filePath);
 };
 
-WebPackMergeJsonsPlugin.prototype.addJsonToWebPackAssets = function(compilation, json) {
+WebpackMergeJsonsPlugin.prototype.addJsonToWebPackAssets = function(compilation, json) {
   var jsonString = JSON.stringify(json);
 
   compilation.assets[this.dest] = {
@@ -63,13 +63,13 @@ WebPackMergeJsonsPlugin.prototype.addJsonToWebPackAssets = function(compilation,
   };
 };
 
-WebPackMergeJsonsPlugin.prototype.addJsonToMergedJson = function(fileName, json) {
+WebpackMergeJsonsPlugin.prototype.addJsonToMergedJson = function(fileName, json) {
   var fileContent = JSON.parse(fs.readFileSync(fileName, 'utf8'));
 
   Object.assign(json, fileContent);
 };
 
-WebPackMergeJsonsPlugin.prototype.isFileChanged = function(compilation, filePath) {
+WebpackMergeJsonsPlugin.prototype.isFileChanged = function(compilation, filePath) {
   var newFileTimeStamp = compilation.fileTimestamps[filePath],
     fileTimeStamp = this.filesTimeStamps[filePath];
 
@@ -78,8 +78,8 @@ WebPackMergeJsonsPlugin.prototype.isFileChanged = function(compilation, filePath
   }
 };
 
-WebPackMergeJsonsPlugin.prototype.updateFileStamp = function(compilation, filePath) {
+WebpackMergeJsonsPlugin.prototype.updateFileStamp = function(compilation, filePath) {
   this.filesTimeStamps[filePath] = compilation.fileTimestamps[filePath];
 };
 
-module.exports = WebPackMergeJsonsPlugin;
+module.exports = WebpackMergeJsonsPlugin;
