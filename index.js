@@ -12,12 +12,6 @@ WebPackMergeJsonsPlugin.prototype.apply = function(compiler) {
 
   this.filesTimeStamps = {};
 
-  compiler.plugin('make', function(compilation, callback) {
-    console.log(compilation);
-
-    callback();
-  });
-
   compiler.plugin('emit', function(compilation, callback) {
     glob(self.src, function(error, files) {
       var json = {},
@@ -32,15 +26,11 @@ WebPackMergeJsonsPlugin.prototype.apply = function(compiler) {
 
         self.addFileToWebPackDependencies(compilation, filePath);
 
-        if (!self.filesTimeStamps[filePath]) {
-          self.updateFileStamp(compilation, filePath);
-          filesChanged.push(true);
-        } else {
-          isFileChanged = self.isFileChanged(compilation, filePath);
+        isFileChanged = self.isFileChanged(compilation, filePath);
 
-          filesChanged.push(isFileChanged);
-          self.updateFileStamp(compilation, filePath);
-        }
+        filesChanged.push(isFileChanged);
+
+        self.updateFileStamp(compilation, filePath);
       });
 
       isAtLeastOneFileChanged = filesChanged.some(function(isChanged) {
