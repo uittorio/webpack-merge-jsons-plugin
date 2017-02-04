@@ -1,0 +1,29 @@
+{
+  "name": "webpack-merge-jsons-plugin",
+  "version": "0.0.1",
+  "description": "webpack merge multiple jsons into one",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "glob": "^7.1.1",
+    "path": "^0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uittorio/webpack-merge-jsons-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "merge",
+    "jsons"
+  ],
+  "author": "Vittorio Guerriero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uittorio/webpack-merge-jsons-plugin/issues"
+  },
+  "homepage": "https://github.com/uittorio/webpack-merge-jsons-plugin#readme"
+}
