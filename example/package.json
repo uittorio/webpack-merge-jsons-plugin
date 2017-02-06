@@ -1,0 +1,13 @@
+{
+  "description": "example webpack json",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "webpack"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^2.2.1",
+    "webpack-merge-jsons-plugin": "0.0.2"
+  }
+}
