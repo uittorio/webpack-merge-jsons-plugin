@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new WebpackMergeJsonsPlugin({
-      src: './*.json',
+      src: './jsons/*.json',
       dest: 'merged.json'
     })
   ]
