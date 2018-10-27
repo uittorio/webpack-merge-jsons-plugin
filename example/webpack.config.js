@@ -1,8 +1,8 @@
 /*globals require, module */
-
-var WebpackMergeJsonsPlugin = require("../index");
+const WebpackMergeJsonsPlugin = require("../index");
 
 module.exports = {
+  mode: "development",
   module: {
     rules: []
   },
