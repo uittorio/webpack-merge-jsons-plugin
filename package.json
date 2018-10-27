@@ -1,6 +1,6 @@
 {
   "name": "webpack-merge-jsons-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "webpack merge multiple jsons into one",
   "main": "index.js",
   "scripts": {
