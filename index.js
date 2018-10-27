@@ -47,7 +47,7 @@ WebpackMergeJsonsPlugin.prototype.apply = function(compiler) {
 };
 
 WebpackMergeJsonsPlugin.prototype.addFileToWebPackDependencies = function(compilation, filePath) {
-  compilation.fileDependencies.push(filePath);
+  compilation.fileDependencies.add(filePath);
 };
 
 WebpackMergeJsonsPlugin.prototype.addJsonToWebPackAssets = function(compilation, json) {
